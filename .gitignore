@@ -2,6 +2,7 @@
 !.env.yarn
 !.git*
 !.nvmrc
+!.prettierignore
 
 build/
 dist/

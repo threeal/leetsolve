@@ -17,16 +17,19 @@ jobs:
         with:
           node-version-file: .nvmrc
 
-      - name: Setup Yarn
-        uses: threeal/setup-yarn-action@v2.0.0
+      - name: Setup pnpm
+        uses: threeal/setup-pnpm-action@v1.0.0
+
+      - name: Install Dependencies
+        run: pnpm install
 
       - name: Check Format
         run: |
-          yarn format
+          pnpm format
           git diff --exit-code HEAD
 
       - name: Check Lint
-        run: yarn lint
+        run: pnpm lint
 
   test-package:
     name: Test Package
@@ -40,8 +43,11 @@ jobs:
         with:
           node-version-file: .nvmrc
 
-      - name: Setup Yarn
-        uses: threeal/setup-yarn-action@v2.0.0
+      - name: Setup pnpm
+        uses: threeal/setup-pnpm-action@v1.0.0
+
+      - name: Install Dependencies
+        run: pnpm install
 
       - name: Test Package
-        run: yarn test
+        run: pnpm test
